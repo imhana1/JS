@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(a);
+        var a = 10;
+        // 이렇게 찍으면 undefined나와
+        // 왜? 자바스크립트의 hoisting 때문
+
+        console.log(b);
+        let b = 20;
+        // hoisting을 하는것과 hoisting을 하는데 반영이 안되는거 차이?
+        // * 키워드를 뭘 쓰느냐에 따라 문법이 바뀌는걸 이야기하는거야 => let과 const를 쓰면 깔끔하긴 한데 이게 내맘대로 되냐
+    </script>
+</body>
+
+</html>

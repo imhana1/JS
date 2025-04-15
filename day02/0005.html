@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    버튼을 클릭하면 현재 시간(Date)을 출력하는 코드
+     -->
+    <div>현재 시간 : <span id="target"></span></div>
+    <button onclick="printCurrentTime()">지금 시간!</button>
+
+    <script>
+      function printCurrentTime() {
+        const now = new Date();
+        document.getElementById("target").textContent = now;
+      }
+    </script>
+  </body>
+</html>

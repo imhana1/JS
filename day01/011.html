@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트위 위치</title>
+    <script>
+        console.log(document.getElementById('demo'));  // null
+        document.getElementById('demo').textContent = '헤더에서 변경';
+        // window.는 생략 가능
+    </script>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        console.log(document.getElementById('demo'));  // <div id='demo'>
+        document.getElementById('demo').textContent = '바디에서 변경';
+        // 왜 다르게 나와?
+        // html은 위에서부터 순서대로 실행 -> 위에는 null 아래는 div 찍어
+        // Dom작업은 body에서 실행되겠지 -> js의 위치는 body의 뒤로 가
+        // = body가 로딩 된 다음에 작업을 해야해
+    </script>
+</body>
+
+</html>

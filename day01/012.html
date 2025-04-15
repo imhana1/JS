@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타입</title>
+</head>
+
+<body>
+    <!--
+        1. 오라클의 타입: 숫자, 문자열, 날짜
+        2. 자바의 타입
+            - 기본타입: 정수, 실수, 문자열, boolean
+            - 참조타입: 객체를 가리키는 4바이트 리모콘(참조변수)
+    -->
+
+    <script>
+        // 파이썬은 동적타입: type()연산자 있어(∵동적타입이라 타입이 바뀌어 -> 타입을 확인할 필요가 있지)
+        // 자바는 정적타입: type을 확인하는 연산자나 함수가 없어(∵타입이 정해져있어 -> 확인할 필요x)
+        // 자바스크립트는 심각하게 동적타입
+        // => 타입을 확인하는 기능이 있어
+        console.log(typeof 100);  // number => 정수실수 구분 안하는구나
+        console.log(typeof 'hello');  // string
+        console.log(typeof true);  // boolean
+
+        a = 10;
+        console.log(typeof a);  // number
+    </script>
+</body>
+
+</html>

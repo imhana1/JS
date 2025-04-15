@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="squareHandler();">제곱하기</button>
+    <button onclick="clickHandler();">제곱답안</button>
+    <script>
+        // 숫자 제곱하기. 숫자가 아닌 값 들어오면 적절한 메시지 내보내
+        function squareHandler() {
+            const num = prompt('제곱할 숫자를 입력하세요');
+            const square = num * num;
+            if (isNaN(square))
+                alert('숫자를 입력하세요');
+            else
+                alert("제곱한 값: " + square);
+        }
+        // 답안
+        function clickHandler() {
+            const input = prompt('제곱할 숫자 입력');
+            const num = Number(input);  // 타입변환하자
+            const result = num * num;
+            if (isNaN(num))
+                alert('숫자를 입력하세요');
+            else
+                alert("결과: " + result);  // 약간 수정했어
+        }
+    </script>
+</body>
+
+</html>

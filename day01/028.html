@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타입 변환하기</title>
+</head>
+
+<body>
+    <script>
+        const a = '100';
+        // 타입을 언어가 변환: 묵시적변환(암시적변환)
+        // 타입을 개발자가 변환: 명시적변환
+        //  가급적 명시적 변환을 권해
+
+        const num = Number(a);  // Number: 내장객체. 생성자
+        console.log(a);
+        console.log(num);
+        // console.log로 찍으면 둘이 색이 달라! 검은색: 글자 / 파란색: 숫자 (크롬/웨일기준)
+
+        // 변환이 안되는 경우도 있어? ㅇㅇ
+        const b = 'hello';
+        // 자바라면 이건 예외(∵문자를 숫자로 바꾸니까)
+        const num2 = Number(b);
+        // 하지만 JS는 NaN이라는 특수값을 만들어 놓음(∵에러를 만들지 않기 위해)
+        console.log(num2);
+        if (isNaN(num2))
+            console.log('숫자만 입력가능합니다');
+        else
+            console.log(num2);
+    </script>
+</body>
+
+</html>

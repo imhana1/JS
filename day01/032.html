@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 점수를 입력받아 70점 이상이면 합격, 아니면 불합격 -->
+    <!-- alert, input 등 뭐로 하든 상관x -->
+
+    <input type="number" placeholder="점수를 입력하세요..." id="score">
+    <button onclick="scoreHandler();">제출</button>
+    <hr>
+    <input type="number" placeholder="점수를 입력하세요..." id="jumsu">
+    <button onclick="scoreHandler2();">제출답안</button>
+    <div>판정결과: <span id="result">점수를 입력하세요</span></div>
+    <hr>
+    <p>
+        두 숫자를 입력받아 더해서 출력
+    </p>
+    <input type="number" placeholder="첫번째 숫자를 입력하세요..." id="num1">
+    <input type="number" placeholder="두번째 숫자를 입력하세요..." id="num2">
+    <button onclick="addHandler();">입력</button>
+    <div>합계: <span id="addResult">두 개의 숫자를 입력하세요</span></div>
+    <hr>
+    <p>합계 답안</p>
+    <input type="number" id="num3" placeholder="첫번째 값">
+    <span>+</span>
+    <input type="number" id="num4" placeholder="두번째 값">
+    <span>=</span>
+    <input type="number" id="result" value="">
+    <button onclick="add()">덧셈하기</button>
+
+
+    <script>
+        function scoreHandler() {
+            const inputScore = document.getElementById('score').value;
+            // if (isNaN(inputScore))
+            //     alert('숫자를 입력하세요');  input을 number로 받아버려서 이거 필요x
+            if (inputScore >= 70)
+                alert('합격입니다');
+            else
+                alert('불합격입니다');
+        }
+
+        function scoreHandler2() {
+            // type을 number로 지정하면 숫자에 해당하는 문자열을 입력받아
+            const jumsu = document.getElementById('jumsu').value;
+            if (jumsu == '') {
+                alert('숫자를 입력하세요');
+                return false;  // 자바스크립트의 관습같은거
+            }
+            const resultSpan = document.getElementById('result');
+            if (jumsu >= 70)
+                resultSpan.textContent = "합격입니다";
+            else
+                resultSpan.textContent = "불합격입니다";
+        }
+
+        //  두 숫자를 입력받아 더해서 출력
+        function addHandler() {
+            const num1 = Number(document.getElementById('num1').value);
+            const num2 = Number(document.getElementById('num2').value);
+            console.log(num1, num2)
+            if (num1 == '' || num2 == '') {
+                alert('두 개의 숫자를 입력하세요')
+                return false;
+            }
+            const addResultSpan = document.getElementById('addResult');
+            // value가 붙으면 값 => 여기에는 value 붙을 필요x
+            const numAdd = num1 + num2;
+            addResultSpan.textContent = numAdd;
+            alert('합계: ' + numAdd);
+
+        }
+        // 답안
+        function add() {
+            const numInput3 = document.getElementById('num3');
+            const numInput4 = document.getElementById('num4');
+
+            // type이 number인경우 빈문자열을 Number로 변환하면 0이 된다
+            const num3 = Number(numInput3.value);
+            const num4 = Number(numInput4.value);
+
+            if (num3 == 0 || num4 == 0) {
+                alert('첫번째 값과 두번째 값을 모두 입력하세요');
+                return;
+            }
+
+            const hap = num3 + num4;
+            document.getElementById('result').value = hap;  // 왜 span 변경안되지
+        }
+
+    </script>
+</body>
+
+</html>

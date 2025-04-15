@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let과 const</title>
+</head>
+
+<body>
+    <script>
+        // ECMA 2015버전(ECMA Script 2015 -> ECMA Script 6 -> ES6)에서 문법이 크게 변해
+        let a = 10;  // 키워드 만들 때 앞에 let을 써라
+
+        // let 키워드의 도입으로 변수 생성과 변경을 구별 (이제 이름이 겹칠수가 없어)
+        // let a = 10;  // 이름이 같은 변수를 2번 만들면 이제 오류가 나
+
+        // let 변수 const 상수
+        const b = 20;
+
+        let x;
+        // undefined라는 값을 가져(이건 사용불가능한 값). undefined라는 타입 오류 안나려고 존재. 나중에 값을 바꿔주면 됨
+        // const y;
+        // const는 상수야 -> undefined라는 값을 바꿀 수 없어 -> 안돼?
+        // 자바의 final과 유사
+        console.log(x, y);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엄격 모드</title>
+</head>
+
+<body>
+    <script>
+        // 문법을 엄격하게 적용. 대표적으로 키워드 없이 변수 생성 금지
+        // 첫번째 줄에 적는다
+        // Node.js 환경에서는 기본적용
+        'use strict'
+        let a = 10;
+        b = 20;
+        console.log(a + b);
+        // 이렇게 적으면 018.html:16 Uncaught ReferenceError: b is not defined at 018.html:16:11
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        head: 메타정보(부가정보)
+        body: html내용
+        js는 html이 아니니까 헤드에 있어야하지않아? 왜 바디에 와? -> 다음으로
+        
+    -->
+</head>
+
+<body>
+    <div id="demo">Hello</div>
+    <script>
+        window.document.getElementById('demo').textContent = '안녕하세요 자바스크립트';
+        // 브라우저의 출력창에서 'demo'라는 아이디를 가진 요소를 찾아서 텍스트내용을 안녕하세요 자바스크립트로 바꿔라
+        window.console.log(window.navigator.userAgent); // 브라우저 정보
+    </script>
+    <!-- 
+        BOM에서 
+            window.location: 주소표시줄
+            window.history: 앞/뒤로가기. 주로 결제창 통제할 때 쓰여
+                window.history.back(): 뒤로가기 버튼
+            window.navigator: 브라우저 정보 ex) 우리 사이트는 크롬에서만 사용 가능합니다
+        
+        보통 js로 주로 다루는 영역은 window.document -> BOM에서 document만 떼서 DOM(Document Object Model)
+            DOM 작업하려고 자바스크립트 써
+                dom작업 = html의 내용을 바꿔
+    -->
+    <!-- 
+        jinaj2, thymeleaf: server-side 기술. 서버에서 실행되어 html을 생성한 다음 사용자에게 응담(response)
+                           서버측 기술이기 때문에 파이썬 또는 자바 코드가 실행 가능
+        자바스크립트: 프론트엔드 기술. 서버에서 데이터를 수신한 다음 사용자 컴퓨터에서 화면 생성. 
+    -->
+</body>
+
+</html>

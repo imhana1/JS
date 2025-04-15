@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="promptHandler();">숫자입력</button>
+    <br><br>
+    <button onclick="clickHandler();">숫자입력 답안</button>
+    <br><br>
+    <button onclick="squareHandler();">제곱</button>
+    <br><br>
+    <button onclick="squareHandler2();">제곱답안</button>
+    <script>
+        // 버튼을 클릭하면 숫자를 입력받아 출력하기
+        function promptHandler() {
+            const inputNumber = prompt('숫자를 입력하세요');
+            alert(inputNumber);
+        }
+
+        // 답안
+        function clickHandler() {
+            const num = prompt("숫자를 입력하세요");
+            alert(num);
+        }
+
+        // 버튼을 클릭하면 숫자 입력받아 제곱해서 출력?
+        function squareHandler() {
+            const inputNum = prompt('제곱할 숫자를 입력하세요');
+            const squareNum = inputNum * inputNum;
+            alert("제곱: " + squareNum);
+        }
+        // 답안
+        function squareHandler2() {
+            const num = prompt('숫자를 입력하세요');
+            const result = num * num;
+            alert(result);
+        }
+        // ! prompt로 입력받으면 문자열인데 자바스크립트의 '타입을 알아서 조정한다'라는 특징때문에 숫자가 계산된 값이 출력되는거야
+        // 숫자로 변환 못하는 값 넣으면 NaN 뜸
+    </script>
+</body>
+
+</html>

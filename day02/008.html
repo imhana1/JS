@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <img src="c:\Users\user\Desktop\1\dabok (2).jpg" width="150px" />
+    </div>
+    <div>
+      <span>다복이 간식</span>
+      <span id="price">2000</span>원
+    </div>
+    <div>
+      <button onclick="ppnd()">-</button>
+      <span id="res">1</span>
+      <button onclick="apnd()">+</button>
+    </div>
+    <div>구매예정 금액 : <span id="total">2000</span>원</div>
+    <script>
+      // + 버튼을 클릭하면 개수 증가, 구매 예정 금액 변경
+      // - 버튼을 클릭하면 개수 감소, 구매 예정 금액 변경
+      // 개수는 1보다 작아질 수 없다
+      const res = document.getElementById("res");
+      const price = parseInt(document.getElementById("price").textContent);
+      const total = document.getElementById("total");
+      function priceTotal(count) {
+        total.textContent = price * count;
+      }
+
+      function apnd() {
+        let count = parseInt(res.textContent);
+        count++;
+        res.textContent = count;
+        priceTotal(count);
+      }
+
+      function ppnd() {
+        let count = parseInt(res.textContent);
+        if (count > 1) {
+          count--;
+          res.textContent = count;
+          priceTotal(count);
+        }
+      }
+    </script>
+  </body>
+</html>

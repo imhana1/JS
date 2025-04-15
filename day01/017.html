@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6 버전의 변수생성
+        let a = 10;
+
+        // ES4 이전의 변수생성
+        // b라는 변수가 있다고 착각하고 값을 변경하려했어-> 알고봤더니 변수가 없어 
+        // -> 그러면 이 땐 변수가 생성되는거야 -> 개발자 의도와 다르게 움직여!
+
+        b = 20;
+
+        // ES5 버전의 변수 생성
+        var c = 100;
+        console.log(a + b + c);
+
+        // 저 다른 변수 생성 방법들이 같이 돌아가
+        // => 난해하다! 버전 규정이 안되고 이전 버전들이 손에 손 잡고 다 같이 돌아가
+
+        // 변수 만들고 값 넣다가 오타내면 변수가 2개 만들어지는거야;;
+        let daysOfWeek;
+        daysOFWeek = 7;
+    </script>
+</body>
+
+</html>

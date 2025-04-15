@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input을 사용한 숫자의 제곱</title>
+</head>
+
+<body>
+    <input type="number" placeholder="제곱할 숫자 입력..." id="num">
+    <!-- id: front / name: back에서 사용하는 이름 -->
+    <button onclick="clickHandler();">제곱하기</button>
+    <hr>
+    <!-- 버튼을 클릭하면 input의 값을 읽어올거야 -->
+    제곱결과: <input type="number" id="result" disabled>
+    <script>
+        function clickHandler() {
+            const numInput = document.getElementById('num');
+            // console.log(numInput);  // 제곱하기 버튼 누르면 <input type~> 줄 찍혀나옴
+            console.log(numInput.value);  // 이렇게하면 numInput의 value값 꺼내
+            const num = document.getElementById('num').value;  // 이렇게해도 value값 꺼내기 가능
+            console.log(num);
+            const result = num * num;
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+
+</html>

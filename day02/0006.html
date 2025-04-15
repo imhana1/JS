@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span id="target">1</span>
+    <button onclick="증가()">증가</button>
+    <script>
+      // 버튼 추가하고, 버튼을 클릭하면 값이 1씩 증가
+
+      function 증가() {
+        let value = document.getElementById("target").textContent;
+        value++;
+        document.getElementById("target").textContent = value;
+      }
+    </script>
+  </body>
+</html>

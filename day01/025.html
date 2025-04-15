@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자를 입력받아 제곱해서 출력하기</title>
+</head>
+
+<body>
+    <!-- 클릭하면(event) -->
+    <button onclick="clickHandler();">삭제</button>
+    <button onclick="dblClickHandler();">이름</button>
+    <!-- onclick 안에 자바스크립트 코드 넣으면 버튼 눌렀을 때 실행 -->
+
+    <script>
+        // JS에서 사용자와 상호작용하는 함수
+        // alert() 많이씀
+        // prompt() 많이 쓰진x
+        // confirm() 많이씀
+        // alert('hello');
+        function clickHandler() {
+            const response = confirm('삭제하시겠습니까?');
+            // console.log(response);  // 값이 true/false (확인이면 true 취소면 false)
+            if (response)
+                alert('삭제합니다');
+            else
+                alert('삭제를 취소했습니다');
+        }
+        // 버튼을 클릭하면 특정 함수 실행하게 하는 방법
+        // : 괄호로 묶고 버튼 뒤에 onclick="함수이름()"
+
+        function dblClickHandler() {
+            const name = prompt('이름을 입력하세요');  // prompt: 입력받는 함수! 근데 많이 쓰진x
+            alert(name);
+        }
+
+    </script>
+</body>
+
+</html>

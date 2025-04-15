@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산술연산3: JS는 되는 방향으로 움직인다</title>
+</head>
+
+<body>
+    <script>
+        const a = 10;
+        const b = 'hello';
+        console.log(a + b);  // "10hello" 되도록이면 되는 방향으로 움직여
+        // 프론트잖아(일반사용자대상) -> 에러메시지 보내는것보단 출력하는게 낫지. 가급적이면 에러 안낵 되는 방향으로 움직여
+
+        const c = '10';
+
+        // 자바는 정적타입 -> 타입 바뀌지x ex) a=10; a=a+3.14 불가능(타입이 고정되어있어)
+        // 파이썬은 동적타입 -> 타입 바뀔 수 o 하지만 파이썬이 알아서 타입을 바꾸진 않아 타입변환은 개발자가 해 ex) a=10 a=a+3.14 이거 되진 않음
+        // JS는 동적타입 -> JS 맘대로 타입 바꿈
+        console.log(a + c);  // "1010" 둘 중에 하나가 글자면 나머지 한자로 글자로 바꿔서 더해버려
+        console.log(a * c);  // 100  <= 되는 방향으로 타입을 바꿔서 계산해
+        console.log(a / c);  // 1
+        console.log(typeof c);  // c는 여전히 string이야. 그냥 잠깐 바꿔서 계산하고 돌려놓음
+
+        console.log(a * b);  // NaN(Not a Number): 내장객체
+        // 숫자로 취급할 수 있으면 숫자로 바꿔버리는데 숫자로 취급이 불가능하면 NaN으로 찍혀
+    </script>
+</body>
+
+</html>
