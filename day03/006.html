@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>입장료 총액 : <span id="price"></span></div>
+    <div>인원 : <span id="count"></span></div>
+    <div>
+      <button onclick="apnd();">증가</button>
+      <button onclick="ppnd();">감소</button>
+    </div>
+    <script>
+      const fee = 3000;
+      let count = 1;
+      const priceElement = document.getElementById("price");
+      const countElement = document.getElementById("count");
+
+      function res() {
+        priceElement.textContent = `${count * fee}원`;
+        countElement.textContent = `${count}명`;
+      }
+
+      function apnd() {
+        count++;
+        res();
+      }
+
+      function ppnd() {
+        if(count <= 1)
+            return;
+        count--;
+        res();
+      }
+    </script>
+  </body>
+</html>

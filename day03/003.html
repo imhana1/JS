@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양수면 파랑, 음수면 빨강으로 표시해라</title>
+</head>
+
+<body>
+    <div id="counter"></div>
+    <div id="count">
+        <span style="color: red;">-10</span>
+        <span style="color: blue;">10</span>
+    </div>
+    <div>
+        <button onclick="inc();">+</button>
+        <button onclick="dec();">-</button>
+    </div>
+
+    <script>
+        const countElement = document.getElementById('count');
+        let count = 0;
+        countElement.innerHTML = `<span style="color:blue">${count}</span>`
+        // html에 적용할거면 innerHTML
+        function inc() {
+            count++;
+            let html = `<span style="color:${count >= 0 ? 'blue' : 'red'}">${count}</span>`;
+            countElement.innerHTML = html;
+        }
+        function dec() {
+            count--;
+            // const color = count>0? "blue":"red";
+            let html = `<span style="color:${count >= 0 ? 'blue' : 'red'}">${count}</span>`;
+            // 템플릿 문자열 안에 ${} 여러번 올 수 있어
+            // 데이터는 무조건 자바스크립트가 들고있어야해.
+            // JS에서 값이 바뀌면  html 값도 바뀌어야해(JS의 값을 html에서 출력하는거: 렌더링)
+            // ${}안에는 삼항연산자 올 수 있어! 자바스크립트 코드가 오는거라 변수를 때려박든 삼항연산자를 쓰든 ㅇㅋ
+            countElement.innerHTML = html;
+        }
+
+
+    </script>
+</body>
+
+</html>

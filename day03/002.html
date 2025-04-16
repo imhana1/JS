@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 
+        카운터 만들기
+        - 카운터 값은 html이 아닌 자바스크립트의 변수
+        - 출력은 템플릿문자열로 만들기
+    -->
+    <div id="target"></div>
+    <button onclick="plus();">+</button>
+    <button onclick="minus();">-</button>
+    <hr />
+
+    <!-- 답안 -->
+    <div id="counter"></div>
+    <div id="count"></div>
+    <div>
+      <button onclick="inc();">+</button>
+      <button onclick="dec();">-</button>
+    </div>
+
+    <script>
+      let num = 0;
+      // let printText = `숫자: ${num}`
+      document.getElementById("target").textContent = `숫자: ${num}`;
+
+      function plus() {
+        document.getElementById("target").textContent = `숫자: ${++num}`;
+      }
+      function minus() {
+        document.getElementById("target").textContent = `숫자: ${--num}`;
+      }
+
+      // 답안
+      const countElement = document.getElementById("count");
+      let count = 0;
+      countElement.textContent = count;
+      function inc() {
+        count++;
+        countElement.textContent = count;
+      }
+      function dec() {
+        count--;
+        countElement.textContent = count;
+      }
+
+      // 삼항연산자 쓰는 방법
+      const color = count > 0 ? "blue" : "Red";
+    </script>
+  </body>
+</html>
