@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    국어 :
+    <input type="number" id="kor" placeholder="국어 성적" min="0" max="100" />
+    영어 :
+    <input type="number" id="eng" placeholder="영어 성적" min="0" max="100" />
+    수학 :
+    <input type="number" id="math" placeholder="수학 성적" min="0" max="100" />
+    <div id="result"></div>
+    <script>
+      const korElement = document.getElementById("kor");
+      const engElement = document.getElementById("eng");
+      const mathElement = document.getElementById("math");
+      const resultElement = document.getElementById("result");
+
+      function 계산해서출력() {
+        const kor = korElement.value;
+        const eng = engElement.value;
+        const math = mathElement.value;
+        const sum = kor + eng + math;
+        const avg = sum / 3;
+
+        resultElement.textContent = `합계 : ${sum}점, 평균 : ${avg.toFixed(1)}점`;
+      }
+
+      korElement.addEventListener("blur", 계산해서출력);
+      engElement.addEventListener("blur", 계산해서출력);
+      mathElement.addEventListener("blur", 계산해서출력);
+    </script>
+  </body>
+</html>

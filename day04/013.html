@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>익명 함수</title>
+  </head>
+  <body>
+    <script>
+      // 자바스크립트에서는 함수도 변수에 저장할 수 있다
+      // 자바스크립트에서는 변수가 올 수 있는 모든 곳에는 함수도 올 수 있다
+      // ㄴ 자바스크립트에서 함수는 일급 객체 (first-class citizen) 다.
+      //    ㄴ ex. sum(3,4) 와 sum(함수, 함수) 가 가능하다
+      // 반대로 자바는 변수에 함수를 대입할 수 없다
+      //
+
+      const a = 10;
+      const b = function () {
+        console.log("hello");
+      };
+      // 위 예시의 경우 function 함수의 이름이 생략이 가능함
+      // 그래서 호출할 때도 변수로 호출
+      // 이런 것을 익명함수라고 함
+
+      // 개발자가 기능을 개발하면 그 기능(함수)을 일정한 간격으로 실행해주는 함수
+      // 콜백함수
+      // function aaa() {
+      //   console.log("안녕하세요");
+      // }
+      // setInterval(aaa,1000);
+
+      setInterval(function () {
+        console.log("안녕하세요");
+      }, 1000); // ex. 시계
+
+      b();
+    </script>
+  </body>
+</html>

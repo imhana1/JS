@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #parent {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        position: relative;
+      }
+
+      #child {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    부모 : 500 * 500
+    자식 : 100 * 100
+
+    Math.random() : 0~1 사이의 랜덤한 실수
+    Math.floor() : 소수점 이하를 버린다
+    html 을 실행하면 랜덤한 위치에 자식이 출력되도록
+    left = 20;
+    자식.style.left = left + 'px';
+  -->
+    <div id="parent">
+      <div id="child"></div>
+    </div>
+
+    <script>
+      // 'use strict' ← 리액트에서는 자동으로 붙어져서 나옴 자바스크립트에서는 선언 해야하지만 했다고 주장
+
+      const childElement = document.getElementById("child");
+      const parentElement = document.getElementById("parent");
+      const PARENT_WIDTH = 500;
+      const PARENT_HEIGHT = 500;
+      const CHILD_WIDTH = 50;
+      const CHILD_HEIGHT = 50;
+
+      function init() {
+        parentElement.style.width = PARENT_WIDTH + "px";
+        parentElement.style.height = PARENT_HEIGHT + "px";
+        childElement.style.width = CHILD_WIDTH + "px";
+        childElement.style.height = CHILD_HEIGHT + "px";
+        maxLeft = PARENT_WIDTH - CHILD_WIDTH;
+        maxTop = PARENT_HEIGHT - CHILD_HEIGHT;
+      }
+
+      function 랜덤위치지정() {
+        const left = Math.floor(Math.random() * maxLeft);
+        const top = Math.floor(Math.random() * maxTop);
+        childElement.style.left = left + "px";
+        childElement.style.top = top + "px";
+      }
+
+      // childElement.onclick = 랜덤위치지정; = div 에 들어가는 onkeydown=랜덤위치지정(); 과 같음
+
+      // 이벤트를 지정하는 방법 1: 요소에서 on 이벤트 이름 속성으로 지정
+      // 이벤트를 지정하는 방법 2 : 요소.addEventListener('이벤트이름', 함수이름)
+
+      childElement.addEventListener("click", 랜덤위치지정);
+
+      init();
+      랜덤위치지정();
+
+      // const maxLeft = 450;
+      // const maxTop = 450;
+
+      // let childLeft = Math.floor(Math.random() * maxLeft);
+      // let childTop = Math.floor(Math.random() * maxTop);
+
+      // childElement.style.left = childLeft + 'px';
+
+      // childElement.style.top = childTop + 'px';
+
+      // 오류 메시지 중
+      // cannot read property of null (style)
+      // element.style.속성 중 element 를 불러올 때 아이디 실수한 것
+    </script>
+  </body>
+</html>

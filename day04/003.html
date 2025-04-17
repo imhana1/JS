@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ar = [75, 80, 65, 90, 55];
+        const result = [];
+        
+        // 70점이상인 점수 출력, result 에 저장
+        // for (const j of ar) {
+        //     if (j >= 70)
+        //         console.log(j);
+        // }
+
+        // 70점이상인 점수 result 에 저장
+        let i = 0;
+        for (const j of ar) {
+            if(j >= 70){
+                result[i++] = j;
+            }
+        }
+        console.log(result);
+    </script>
+</body>
+</html>

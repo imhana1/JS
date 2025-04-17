@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>점수 입력, 출력 후 합계</title>
+  </head>
+  <body>
+    <input
+      type="number"
+      onkeypress="입력(event)"
+      id="num"
+      placeholder="숫자 입력"
+    />
+    <div id="result"></div>
+    <ul id="target"></ul>
+    <script>
+      //   const ar = [];
+      //   const numElement = document.getElementById("num");
+      //   const ulElement = document.getElementById("target");
+      //   const resultElement = document.getElementById("result");
+
+      //   function 입력(event) {
+      //     if (event.key == "Enter") {
+      //       // push : 배열의 마지막에 추가
+      //       ar.push(Number(numElement.value));
+      //       //   console.log(ar);
+      //       numElement.value = "";
+      //       출력();
+      //     }
+      //   }
+
+      //   function 출력() {
+      //     ulElement.innerHTML = "";
+
+      //     for (const num of ar) {
+      //       const li = document.createElement("li");
+      //       li.textContent = num;
+      //       ulElement.appendChild(li);
+
+      //       // appendChild : ulElement 가 null 이라면 에러
+      //       //               함수는 null이 될 수 없기에  ulElement 가 null
+      //     }
+
+      //     let sum = 0;
+
+      //     for (let i = 0; i < ar.length; i++) {
+      //       sum += ar[i];
+      //     }
+      //     resultElement.textContent = `합계: ${sum}`;
+      //   }
+
+      // =================================== 선생님이 한거 ===============================
+
+      const ar = [];
+      const numElement = document.getElementById("num");
+      const ulElement = document.getElementById("target");
+      const resultElement = document.getElementById("result");
+
+      let sum = 0;
+
+      function 입력(event) {
+        if (event.key == "Enter") {
+          const num = Number(numElement.value);
+          ar.push(Number(numElement.value));
+          sum += num;
+          numElement.value = "";
+          출력();
+        }
+      }
+
+      function 출력() {
+        resultElement.textContent = `합계: ${sum}`;
+        ulElement.innerHTML = "";
+        for (const num of ar) {
+          const li = document.createElement("li");
+          li.textContent = num;
+          ulElement.appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>
