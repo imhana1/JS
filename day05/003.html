@@ -26,6 +26,13 @@
       // JSON -> 객체로
       const obj = JSON.parse(str);
       console.log(obj);
+
+      const br = [1, 2, 3, 4, 5];
+      const json = JSON.stringify(br);
+      const cr = JSON.parse(json);
+      for (const c of cr) {
+        console.log(c);
+      }
     </script>
   </body>
 </html>
