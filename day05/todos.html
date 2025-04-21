@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #app {
+      width: 1000px;
+      margin: 0 auto;
+    }
+    .finish {
+      text-decoration: line-through;
+    }
+  </style>
+  <script>
+    // tno 와 todos 배열은 밖에 나와있어도 됨
+    let tno=1;
+    const todos = [];
+
+    // printTodos를 다시 불러야하기에 한 줄로 못 씀
+    const toggle=(index)=>{
+       todos[index].finish = !todos[index].finish;
+       printTodos();
+    }
+    const remove=(index)=>{
+      todos.splice(index, 1);
+      printTodos();
+    }
+    const printTodos =()=> {
+      const tbodyElement = document.getElementById('tbody');
+      let html = '';
+      let index = 0;
+      for(const todo of todos) {
+        html+=` 
+          <tr>
+            <td>${todo.tno}</td>
+            <td class='${todo.finish? "finish":""}'>
+              ${todo.finish? todo.title + "(완료)": todo.title}
+            </td>
+            <td>${todo.date}</td>
+            <td>
+              <button class='btn btn-success' onclick='toggle(${index})'>
+                ${todo.finish? "작업중" : "완료"}
+              </button>
+              <button class='btn btn-danger' onclick='remove(${index})'>삭제</button>  
+            </td>
+          </tr>
+        `; // finish가 참일 때? 작업중 : 거짓일 때 완료로 출력하기
+          // finish 가 참일 때? todo.title+(완료) : 거짓일 때 todo.title 출력하기
+          // td = todo.finish 가 참일 때? "finish" 상태 : 거짓일 때 "" ← 빈 문자열로
+          // 타이틀 불러올 수 있게 비워두기
+        index++;
+      }
+      tbodyElement.innerHTML = html;
+    }
+
+    const add=()=> {
+      const titleElement= document.getElementById('title');
+      if(titleElement.value ==''){
+        return;
+      }
+      const todo = {tno:tno++, title:titleElement.value, date:new Date().toLocaleString(), finish:false};
+      todos.push(todo);
+      titleElement.value='';
+      printTodos(); // add 할 때 printTodos(); 실행하기!
+    }
+
+    const enter=(event)=>{
+      if(event.key=='Enter')
+        add();
+    }
+    // 화면이 로딩되고 나면 익명함수를 실행하라
+    window.onload = function() {
+
+    }
+  </script>
+  <title>할 일 관리</title>
+</head>
+<body>
+  <div id="app">
+    <div class="mt-3 mb-3">
+      <label class="form-label">할 일:</label>
+      <input type="text" class="form-control" placeholder="할 일 입력" id="title" onkeydown="enter(event)">
+    </div>
+    <div class="d-grid mt-3 mb-5"> 
+      <button type="button" class="btn btn-outline-primary" onclick="add()">추가</button>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>할 일</th>
+          <th>등록일</th>
+          <th></th> <!-- 버튼 대체 -->
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <colgroup>
+      <col width="10%">
+      <col width="35%">
+      <col width="20%">
+      <col width="25%">
+    </colgroup>
+  </div>
+</body>
+</html>

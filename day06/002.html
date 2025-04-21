@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Promise를 동기화하는 전통적인 방법 then()으로 연결
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts/1")
+        .then(function (response) {
+          console.log(response.data);
+        });
+
+      async function fetch() {
+        const x = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts/1"
+        );
+        console.log(x.data);
+      }
+
+      fetch();
+
+      // then이 더 간단하지 않나? 
+    </script>
+  </body>
+</html>

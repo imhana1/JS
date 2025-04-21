@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>callback 지옥을 해소하자</title>
+  </head>
+  <body>
+    <script>
+      // 회원가입 화면에서 "가입" 버튼을 클릭하면
+      // 1. 아이디 사용가능한지 확인(백)      get /members/username
+      // 2. 이메일 사용 가능한지 확인         get /members/email
+      // 3. 둘 다 사용 가능하면 회원가입      post /members
+      axios
+        .get("/members/username")
+        .then(function () {
+          axios
+            .get("members/email")
+            .then(function () {
+              axios.post("/members");
+            })
+            .catch();
+        })
+        .catch();
+
+      async function 가입() {
+        await axios.get("/members/username");
+        await axios.get("/members/email");
+        await axios.post("/members");
+      }
+      가입();
+    </script>
+  </body>
+</html>
