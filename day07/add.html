@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .error {
+        color: red;
+        font-size: 0.8em;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div class="mt-3 mb-3">
+        <label class="form-label" for="title">할일 : </label>
+        <input
+          type="text"
+          id="title"
+          placeholder="할 일 입력"
+          class="form-control"
+          onblur="titleCheck()"
+        />
+        <span id="title-msg" class="error"></span>
+      </div>
+      <div class="mt-3 mb-3">
+        <label class="form-label" for="deadline">마감일 : </label>
+        <input
+          type="date"
+          id="deadline"
+          class="form-control"
+          onblur="deadlineCheck()"
+        />
+        <span id="deadline-msg" class="error"></span>
+      </div>
+      <div class="mt-3 mb-3">
+        <label class="form-label" for="memo">메모 : </label>
+        <textarea
+          id="memo"
+          class="form-control"
+          onblur="memoCheck()"
+        ></textarea>
+      </div>
+      <div class="mt-3 mb-3">
+        <button class="btn btn-primary" onclick="add()">작성</button>
+      </div>
+    </div>
+
+    <script>
+      const titleElement = document.getElementById("title");
+      const titleMsgElement = document.getElementById("title-msg");
+      const deadlineElement = document.getElementById("deadline");
+      const deadlineMsgElement = document.getElementById("deadline-msg");
+      const memoElement = document.getElementById("memo");
+
+      const titleCheck = () => {
+        const title = titleElement.value;
+        titleMsgElement.textContent = "";
+        if (title == "") {
+          titleMsgElement.textContent = "할 일을 입력하세요";
+          return false;
+        }
+        return true;
+      };
+
+      const deadlineCheck = () => {
+        const deadline = deadlineElement.value;
+        deadlineMsgElement.textContent = "";
+        if (deadline == "") {
+          deadlineMsgElement.textContent = "마감일을 입력하세요";
+          return false;
+        }
+        return true;
+      };
+
+      const memoCheck = () => {
+        const memo = memoElement.value;
+        if (memo == "") {
+          memoElement.setAttribute("placeholder", "메모를 입력하세요");
+          return false;
+        }
+        return true;
+      };
+
+      const add = async () => {
+        // 모든 검증 함수를 호출해 그 결과를 & -> 모두 다 참이어야만 checkResult가 참이 된다
+        // 컴파일러가 아래 코드를 실행할 때 chaeckResult가 정해지면 연산을 멈춘다
+        // 결과가 boolean이 있는 연산은 결과 값이 정해지면 멈춘다!
+        // const checkResult = titleCheck() && deadlineCheck() && memoCheck();
+
+        let checkResult = titleCheck();
+        checkResult = deadlineCheck() && checkResult;
+        checkResult = memoCheck() && checkResult;
+        if (!checkResult) return;
+
+        const title = document.getElementById("title").value;
+        const deadline = document.getElementById("deadline").value;
+        const memo = document.getElementById("memo").value;
+
+        // 객체를 만드는데 필드의 이름과 변수의 이름이 같다면
+        // const params = { title: title, memo: memo, deadline: deadline };
+        // ES6 : const, let, 화살표 함수, 구조 분해 할당
+        const params = { title, memo, deadline };
+        try {
+          await axios.post("http://192.168.0.19:8080/todos/new", params);
+          // form은 필요하지 않음
+          location.href = "/day07/list.html";
+        } catch (err) {
+          console.log(err);
+        }
+
+        // await axios.post("http://192.168.0.19:8080/todos/new", params);
+        // // form은 필요하지 않음
+        // location.href = "/day07/list.html";
+      };
+    </script>
+  </body>
+</html>
