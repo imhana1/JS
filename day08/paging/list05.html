@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const PAGES_PER_BLOCK = 5;
+    const CONTACTS_PER_PAGES = 10;
+    // const 글의개수 = 123;
+    // const 페이지개수 = 13;
+    // pageno     prev      start     end     next
+    // 1~5         0          1        5        6
+    // 6~10        5          6        10       11
+    // 11~13       10        11        13       0
+
+    // 글의 갯수에 따른 페이지의 갯수
+    // totalcount         페이지의 갯수
+    //    119                  12
+    //    120                  12
+    //    121                  13
+
+    // 계산할 때 Math.ceil 을 사용하면 됨
+    for(let i=119; i<=121; i++) {
+      console.log(Math.ceil(i/CONTACTS_PER_PAGES));
+    }
+
+    // pageno     prev      start     end     next
+    // 1~5         0          1        5        6
+    // 6~10        5          6        10       11
+    // 11~13       10        11        13       0 
+
+    // for (let pageno=1; pageno<=10; pageno++) {
+    //   // start = Math.ceil(pageno/PAGES_PER_BLOCK);
+    //   // console.log(pageno, ' ', start);
+
+    //   const prev = (Math.ceil(pageno/PAGES_PER_BLOCK)-1) * PAGES_PER_BLOCK;
+    //   const start = prev + 1;
+    //   const end = prev + PAGES_PER_BLOCK;
+    //   const next = end + 1;
+    //   console.log(`${pageno} ${prev} ${start} ${end} ${next}`);
+    // }
+
+    const 페이지의개수 = 13;
+    for (let pageno=1; pageno<=13; pageno++) {
+      // start = Math.ceil(pageno/PAGES_PER_BLOCK);
+      // console.log(pageno, ' ', start);
+
+      const prev = (Math.ceil(pageno/PAGES_PER_BLOCK)-1) * PAGES_PER_BLOCK;
+      const start = prev + 1;
+      let end = prev + PAGES_PER_BLOCK;
+      let next = end + 1;
+      // 마지막 블록인 경우 (페이지의 개수보다 end 값이 같거나 큰 경우)
+      // 페이지의개수가 13인 경우 마지막 페이지도 13이어야 한다
+      // 그런데 계산으로 얻어낸 end 는 15다 이것을 보정해주면 된다
+      if(end>=페이지의개수) {
+        end = 페이지의개수;
+        next = 0;
+      }
+      console.log(`${pageno} ${prev} ${start} ${end} ${next}`)
+    }
+  </script>
+</body>
+</html>
